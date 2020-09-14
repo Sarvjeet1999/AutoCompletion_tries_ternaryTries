@@ -48,15 +48,16 @@ public class ternary_trees {
         char ch=word.charAt(i);
         int n=word.length();
 
-        if(ch<root.data)  return delete(root.left,word,i);
-        else if(ch>root.data)  return delete(root.right,word,i);
+        if(ch<root.data)  root.left = delete(root.left,word,i);
+        else if(ch>root.data) root.right = delete(root.right,word,i);
 
         else if(ch==root.data)
         {
             if(i==n-1)
             {
                 if(root.eow==false) return root;
-                if(root.eow==true) root.eow=false;
+                //if(root.eow==true) root.eow=false;
+                root.eow=false;
             }
             else root.eq=delete(root.eq,word,i+1);
 
